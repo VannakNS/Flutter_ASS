@@ -11,7 +11,7 @@ class Settingpage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("S E T T I N G"),
+        title: const Text("T H E M E"),
       ),
       body: SafeArea(
         child: Column(

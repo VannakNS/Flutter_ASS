@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/pages/HomePage.dart';
 import 'package:flutter_application_1/pages/ProductPage.dart';
 import 'package:flutter_application_1/pages/setting_page.dart';
@@ -15,7 +16,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int selectedIndex = 0;
   final List pages = [
-    const Homepage(),
+    HomePage(),
     const ProductPage(),
     const Userpage(),
   ];
@@ -24,8 +25,8 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: Colors.black38,
-          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.white,
+          selectedItemColor: Colors.yellow,
           backgroundColor: Theme.of(context).colorScheme.primary,
           type: BottomNavigationBarType.fixed,
           currentIndex: selectedIndex,
@@ -34,10 +35,10 @@ class _MainPageState extends State<MainPage> {
               })),
           elevation: 0,
           items: const [
-            BottomNavigationBarItem(icon: Icon(Iconsax.home), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
            
             BottomNavigationBarItem(
-                icon: Icon(Iconsax.box), label: "Product"),
+                icon: Icon(Icons.store), label: "Product"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.settings), label: "Setting"),
           ]),

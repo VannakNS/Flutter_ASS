@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/list.dart';
-
 import 'package:iconsax/iconsax.dart';
 
 class Aboutus extends StatelessWidget {
@@ -11,43 +10,46 @@ class Aboutus extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        title: const Text("About Us "),
-       
+        title: const Text("About Us"),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
-            
             children: [
+              // Uncomment the below image if you want to include a logo
               // Image.network(
               //   "https://zandokh.com/image/catalog/logo/TEN11.png",
-              //   fit: BoxFit.cover, // Ensures the image covers the area
-              //   // Match this to 2 * radius for proper sizing
+              //   fit: BoxFit.cover,
               //   height: 70,
-                
               // ),
-              Container(
-                padding: EdgeInsets.symmetric(
-                    horizontal: 16),
-                     // Add padding for better spacing
-                child: const Text(
-                  
-                  "We are  Ten11, a leading global e-commerce platform designed to make online shopping effortless and enjoyable! "
-                  "At redBus, you can explore a wide range of products, compare prices, read reviews, and securely pay for your orders—all from the comfort of your home or on the go.\n\n"
-                  "With millions of happy customers and partnerships with thousands of trusted sellers, redBus ensures reliability, affordability, and convenience. "
-                  "From electronics and fashion to home essentials, we bring everything you need to your fingertips.\n\n"
-                  "Shop with us for a fast, hassle-free, and satisfying e-commerce experience!\n\n"
-                  "Privacy Policy\nTerms and Conditions\n\n",
-                  style: TextStyle(
-                    fontSize: 16,
+
+              Card(
+                margin: const EdgeInsets.all(16), // Card margins
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                elevation: 4,
+                child: Padding(
+                  padding: const EdgeInsets.all(16), // Padding inside the card
+                  child: const Text(
+                    '''
+Welcome to N4K SHOP, your ultimate destination for premium coffee and delicious meals! At N4K SHOP, we believe that every cup of coffee and every dish tells a story. Our menu is carefully curated to bring you the perfect blend of flavors, from aromatic cappuccinos to mouthwatering main courses. Whether you're stopping by for a quick drink, looking for the perfect meal, or simply indulging in a cozy café experience, we've got you covered.
+
+We are committed to using the freshest ingredients and delivering impeccable service to ensure every visit is a delightful one.
+Thank you for choosing N4K SHOP. Your satisfaction is our greatest reward.
+                    ''',
+                    style: TextStyle(
+                      fontSize: 16,
+                      height: 1.5, // Improve line spacing
+                    ),
+                    textAlign: TextAlign.justify,
                   ),
-                  textAlign:
-                      TextAlign.justify, // Justify the text for a clean look
                 ),
               ),
+
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: ProfileSt(
                   textLable: "Privacy Policy",
                   icon: Iconsax.key,
@@ -55,15 +57,15 @@ class Aboutus extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: ProfileSt(
                   textLable: "Terms and Conditions",
-                  icon: Icons.group,
+                  icon: Iconsax.group,
                   onTap: () {},
                 ),
               ),
-             SizedBox(height: 10,),
-              Text("Version: V8.1.2.5"),
+              const SizedBox(height: 20),
+              const Text("Version: V1.1.0", style: TextStyle(fontSize: 14)),
             ],
           ),
         ),

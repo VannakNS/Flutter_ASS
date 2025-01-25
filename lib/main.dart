@@ -22,6 +22,6 @@ class Home extends StatelessWidget {
     return MaterialApp(
      theme: Provider.of<ThemeProvider>(context).themeData,
 
-      home:const MainPage());
+      home: MainPage());
   }
 }

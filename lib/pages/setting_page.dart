@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/list.dart';
 import 'package:flutter_application_1/components/settingPage.dart';
 import 'package:flutter_application_1/pages/aboutPage.dart';
+import 'package:flutter_application_1/pages/loginPage.dart';
 
 import 'package:iconsax/iconsax.dart';
 
@@ -18,67 +19,69 @@ class _UserpageState extends State<Userpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Theme.of(context).colorScheme.surface,
-      appBar: AppBar(
-        title: const Text("My Account"),
-        centerTitle: true,
-      ),
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(vertical: 20.0),
+        child: Column(
+          children: [
+            const CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage('lib/image/c6.jpg'), // Replace with your image asset
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              "Hello, NAK",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20),
+            _buildOptionCard(context, Icons.account_circle, "My account", () {
               
-              
-              const SizedBox(
-                height: 15,
-              ),
-              const Text(
-                "Ms thida",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-             
-              ProfileSt(
-                textLable: "wallet",
-                icon: Iconsax.wallet,
-                onTap: () {},
-              ),
-              ProfileSt(
-                textLable: "My order",
-                icon: Icons.library_books_outlined,
-                onTap: () {},
-              ),
-              ProfileSt(
-                textLable: "My account",
-                icon: Icons.person,
-                onTap: () {},
-              ),
-              ProfileSt(
-                textLable: "Customer spport",
-                icon: Icons.chat_rounded,
-                onTap: () {Navigator.push(context,MaterialPageRoute(builder: (context)=>const Settingpage()));},
-              ),
-              ProfileSt(
-                textLable: "About Us",
-                icon: Icons.ads_click_sharp,
-                onTap: () {Navigator.push(context,MaterialPageRoute(builder: (context)=>const Aboutus()));},
-              ),
-              ProfileSt(
-                textLable: "Setting",
-                icon: Icons.settings,
-                onTap: (){
-                  Navigator.push(context,MaterialPageRoute(builder: (context)=>const Settingpage()));
-                },
-              ),
-              // ProfileSt(
-              //     textLable: "Logout",
-              //     icon: Icons.logout,
-              //     onTap: () => signOutUser(context)),
-            ],
-          ),
+              // Add your navigation or functionality here
+            }),
+            _buildOptionCard(context, Icons.library_books_outlined, "My order", () {
+              // Add navigation or functionality here
+            }),
+            _buildOptionCard(context, Icons.payment, "Billing", () {
+              // Add navigation or functionality here
+            }),
+            _buildOptionCard(context, Icons.color_lens, "Theme", () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Settingpage()),
+              );
+            }),
+            _buildOptionCard(context, Icons.question_mark, "About Us", () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Aboutus()),
+              );
+            }),
+            _buildOptionCard(context, Icons.logout, "Logout", () {
+               Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginPage()),
+              );
+              // Implement logout functionality
+            }),
+          ],
         ),
+      ),
+    );
+  }
+   Widget _buildOptionCard(
+    BuildContext context,
+    IconData icon,
+    String title,
+    VoidCallback onTap,
+  ) {
+    return Card(
+      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      child: ListTile(
+        leading: Icon(icon, color: Theme.of(context).colorScheme.inverseSurface),
+        title: Text(title),
+        trailing: const Icon(Icons.arrow_forward_ios),
+        onTap: onTap,
       ),
     );
   }
